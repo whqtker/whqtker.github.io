@@ -1,5 +1,5 @@
 ---
-title : "[Network] Polling, SSE, Websocker이란"
+title : "[Network] Polling, SSE, Websocket이란?"
 date : 2025-03-13 17:40:00 +0900
 categories : [Network]
 tags : [network, cs, 네트워크]
@@ -43,7 +43,7 @@ SSE는 연결이 끊어지면 클라이언트가 **자동으로 재연결**하�
 
 ## 정리
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/90540718-b0d1-4188-b7a0-9cadb107851b/b11145bd-8cfd-443b-b30b-b0e835bcc776/image.png)
+![network](assets/img/network/psw.png)
 
 |  | Polling | Long Polling | SSE | Websocket |
 | --- | --- | --- | --- | --- |

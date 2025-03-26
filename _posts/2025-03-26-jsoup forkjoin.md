@@ -5,7 +5,7 @@ categories : [Troubleshooting]
 tags : [java, troubleshooting, spring boot, crawling, forkjoinpool, forkjoin framework, jsoup]
 ---
 
-## 문제의 코드
+## 📌 문제의 코드
 
 ```java
     @Transactional
@@ -122,7 +122,7 @@ Tool과 SubCategory 간 연관관계를 설정한다. ToolCategory 엔티티는 
 
 나는 `Fork/Join Framework`를 사용했다. 이번 기회를 통해 여러가지 병렬 처리 방법이 존재한다는 것을 알게 되었는데, Fork/Join Framework에 대한 내용을 정리하며 하나씩 살펴보려고 한다.
 
-## 개선된 코드
+## 📌 개선된 코드
 
 ```java
     @Transactional
@@ -272,6 +272,6 @@ Thread.sleep(1000);
 
 과도한 트래픽을 막기 위해 현재 쓰레드를 1초 동안 중지한다.
 
-## 성능 변화
+## 📌 성능 변화
 
 기존 코드는 약 3시간 소요되었으나, 개선된 코드는 약 35분이 소요되었다. 약 **414%** 성능 개선 효과를 보았다.

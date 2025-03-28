@@ -11,7 +11,7 @@ tags : [java, spring boot, jpa, persistence context, 영속성 컨텍스트, 스
 
 JPA의 구현체는 **Hibernate, EclipseLink, OpenJPA, DataNucleus** 등이 있다.
 
-![image.png](attachment:07cff93b-372b-46bf-b47a-1bd730dc7204:image.png)
+![image.png](assets/img/jpa/1.png)
 
 전체적인 데이터 흐름은 아래와 같다.
 
@@ -23,7 +23,7 @@ JPA의 구현체는 **Hibernate, EclipseLink, OpenJPA, DataNucleus** 등이 있�
 
 ## 📌 ORM
 
-![image.png](attachment:80aa7676-9d54-4542-9024-a2ef986a3919:image.png)
+![image.png](assets/img/jpa/2.png)
 
 - **JPA는 ORM의 일종**이다. `ORM(Object-Relational Mapping)` 은 객체 지향 프로그래밍과 RDBMS 간 데이터 변환 및 매핑하는 도구이다. ORM을 통해 SQL 쿼리를 작성하지 않고 **객체 지향적 코드를 통해 DB 작업을 수행**할 수 있다.
 
@@ -120,7 +120,7 @@ flush가 호출되면 아래 작업이 수행된다.
 
 ### Entity Lifecycle
 
-![image.png](attachment:b6ed3bef-29fc-4409-b382-b80b3c3389f3:image.png)
+![image.png](assets/img/jpa/3.png)
 
 엔티티는 영속성 컨텍스트와의 관계에 따라 크게 네 가지 상태를 가진다.
 

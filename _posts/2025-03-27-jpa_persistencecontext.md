@@ -209,6 +209,49 @@ List<Book> findByTitleOrAuthor(String title, String author);
 List<User> findByFirstnameAndCurrentUserWithCustomQuery(String firstname);
 ```
 
+## 📌 페이징
+
+세 가지 개념이 존재한다.
+
+`Pageable`: 페이징 정보를 담는 인터페이스로 페이지 번호, 크기, 정렬 방식 등을 포함한다.
+
+`PageRequest`: Pageable 인터페이스의 구현체로 `PageRequest.of()`를 통해 생성한다.
+
+`Page`: 페이징 결과를 담는 인터페이스로 조회된 데이터와 페이징 관련 메타데이터를 제공한다.
+
+### 구현 방법
+
+아래는 Repository 코드이다.
+
+```java
+public interface PersonRepository extends JpaRepository<Person, Long> {
+    Page<Person> findByName(String name, Pageable pageable);
+}
+```
+
+메서드에 Pageable 파라미터를 추가하면 JPA가 자동으로 페이징 쿼리를 생성하여 실행한다.
+
+아래는 Controller 코드이다.
+
+```java
+@GetMapping
+public Page<AccountDto.Res> getAccounts(Pageable pageable) {
+    return accountService.findAll(pageable).map(AccountDto.Res::new);
+}
+```
+
+메서드 파라미터로 Pageable 타입을 선언하면 URL 쿼리 파라미터로 전달되는 페이징 정보를 자동으로 바인딩하여 Pageable 객체를 생성한다.
+
+아래는 Service 코드이다.
+
+```java
+public Page<Product> findProductsByName(String name, Pageable pageable) {
+    return productRepository.findByName(name, pageable);
+}
+```
+
+컨트롤러부터 전달받은 Pageable 객체를 레파지토리로 전달한다.
+
 ## 📌 참고
 
 [https://velog.io/@modsiw/JPAJava-Persistence-API의-개념](https://velog.io/@modsiw/JPAJava-Persistence-API%EC%9D%98-%EA%B0%9C%EB%85%90)

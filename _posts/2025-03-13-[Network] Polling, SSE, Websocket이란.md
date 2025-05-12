@@ -1,5 +1,5 @@
 ---
-title : "[Network] Polling, SSE, Websocket이란?"
+title : "[Network] Polling, SSE, Websocket"
 date : 2025-03-13 17:40:00 +0900
 categories : [Network]
 tags : [network, cs, 네트워크]

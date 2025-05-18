@@ -1,5 +1,5 @@
 ---
-title : "[Databases] 정규화, 1NF, 2NF, 3NF, BCNF, 4NF, 5NF"
+title : "[DB] 정규화, 1NF, 2NF, 3NF, BCNF, 4NF, 5NF"
 date : 2025-03-09 17:50:00 +0900
 categories : [Databases]
 tags : [정규화, cs, 데이터베이스, db]

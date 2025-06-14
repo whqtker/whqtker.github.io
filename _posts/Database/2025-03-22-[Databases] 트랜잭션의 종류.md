@@ -1,7 +1,7 @@
 ---
-title : "[DB] 트랜잭션의 종류"
+title : "DB 트랜잭션의 종류"
 date : 2025-03-22 12:00:00 +0900
-categories : [Databases]
+categories : [Database]
 tags : [트랜잭션, cs, transaction]
 ---
 

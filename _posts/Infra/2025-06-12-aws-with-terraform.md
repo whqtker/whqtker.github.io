@@ -1,5 +1,5 @@
 ---
-title : "[Infra] AWS 인프라 구축 w/ Terraform"
+title : "AWS 인프라 구축 w/ Terraform"
 date : 2025-06-12 19:05:00 +0900
 categories : [Infra]
 tags : [aws, terraform]

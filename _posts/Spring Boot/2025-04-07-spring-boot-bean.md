@@ -1,5 +1,5 @@
 ---
-title : "[Spring Boot] Bean, 생명 주기, Bean Scope"
+title : "Spring Boot의 Bean, 생명 주기, Bean Scope"
 date : 2025-04-07 19:00:00 +0900
 categories : [Spring Boot]
 tags : [java, spring boot, bean, 스프링 부트, 빈]

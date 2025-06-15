@@ -1,5 +1,5 @@
 ---
-title : "[Spring Boot] JPA, Persistence Context"
+title : "JPA와 Persistence Context"
 date : 2025-03-27 13:00:00 +0900
 categories : [Spring Boot]
 tags : [java, spring boot, jpa, persistence context, 영속성 컨텍스트, 스프링 부트]

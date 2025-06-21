@@ -975,7 +975,7 @@ ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
 
 변경사항 반영 후 다시 `git push` 를 하면 Blue, Green 컨테이너가 올바르게 종료 및 실행되는 것을 확인할 수 있다.
 
-## 깃허브 링크
+## 📌 깃허브 링크
 
 https://github.com/whqtker/practice-frontend-deployment
 https://github.com/whqtker/practice-backend-deployment

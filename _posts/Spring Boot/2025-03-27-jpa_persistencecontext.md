@@ -82,42 +82,6 @@ public void someMethod() {
 }
 ```
 
-### 메서드
-
-```java
-EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence-name");
-EntityManager em = emf.createEntityManager();
-em.persist(member);
-```
-
-`persist()` 를 통해 엔티티를 영속성 컨텍스트에 저장할 수 있다.
-
-```java
-Member findMember = em.find(Member.class, "member1");
-```
-
-`find()` 를 통해 영속성 컨텍스트에서 PK를 기준으로 엔티티를 조회할 수 있다.
-
-```java
-em.flush();
-```
-
-`flush()` 를 통해 영속성 컨텍스트의 변경 사항을 DB에 반영할 수 있다.
-
-### flush
-
-flush하는 방법은 세 가지가 존재한다.
-
-1. `flush()`를 통해 직접 flush
-2. 트랜잭션 커밋 시 자동으로 flush가 호출된다.
-3. JPQL과 같은 객체 지향 쿼리 실행 시 자동으로 flush가 호출된다.
-
-flush가 호출되면 아래 작업이 수행된다.
-
-1. Dirty Chcking이 동작하여 영속성 컨텍스트에 존재하는 모든 엔티티를 스냅샷과 비교한다.
-2. 수정된 엔티티에 대한 SQL을 생성하여 쓰기 지연 SQL 저장소에 삽입한다.
-3. 쓰기 지연 SQL 저장소의 쿼리를 DB에 전송한다.
-
 ### Entity Lifecycle
 
 ![image.png](assets/img/jpa/3.png)

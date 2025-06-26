@@ -77,7 +77,7 @@ void testSubtraction() {
 
 `@Disabled` 가 붙은 테스트 메서드가 있어도 해당 테스트 클래스의 인스턴스는 그대로 생성되며, 해당 메서드의 `@BeforeEach` , `@AfterEach` 메서드 호출 또한 자동으로 실행하지 않는다. 이러한 콜백 메서드에서 예외가 발생하면 해당 테스트 자체가 실패한 것으로 간주한다.
 
-![image.png](attachment:87f84dc1-1810-4f53-ab7a-84286477f571:image.png)
+![image.png](assets/img/junit-assertj/1.png)
 
 테스트를 실행하지 않고 무시한다.
 

@@ -1,5 +1,5 @@
 ---
-title : "JPA와 Persistence Context"
+title : "[JPA] JPA의 개념과 영속성 컨텍스트"
 date : 2025-03-27 13:00:00 +0900
 categories : [Spring Boot]
 tags : [java, spring boot, jpa, persistence context, 영속성 컨텍스트, 스프링 부트]
@@ -7,16 +7,14 @@ tags : [java, spring boot, jpa, persistence context, 영속성 컨텍스트, 스
 
 ## 📌 JPA란?
 
-`JPA(Java Persistence API)` 는 자바 애플리케이션에서 RDBMS를 사용하기 위한 **표준 ORM 기술**이다. JPA는 **인터페이스**로, 이를 구현한 구현체를 사용해야 한다.
-
-JPA의 구현체는 **Hibernate, EclipseLink, OpenJPA, DataNucleus** 등이 있다.
+`JPA(Java Persistence API)` 는 자바 애플리케이션에서 RDBMS를 사용하기 위한 **표준 ORM 기술**이다. JPA는 **인터페이스**로, 이를 구현한 구현체를 사용해야 한다. JPA의 구현체는 **Hibernate, EclipseLink, OpenJPA, DataNucleus** 등이 있다.
 
 ![image.png](assets/img/jpa/1.png)
 
 전체적인 데이터 흐름은 아래와 같다.
 
-1. 자바 애플리케이션은 데이터 관련 작업을 할 때 JPA를 호출한다. 
-2. JPA는 객체 지향적 코드를 SQL 쿼리로 변환한 후 JDBC API를 통해 전달한다. 
+1. 자바 애플리케이션이 JPA를 호출한다. 
+2. JPA가 객체 지향적 코드를 SQL 쿼리로 변환한 후 JDBC에 전달한다. 
 3. JDBC API는 적절한 JDBC 드라이버를 통해 쿼리를 DB에 전송한다. 
 4. DB는 쿼리를 실행하고 결과를 JDBC 드라이버에 전달한다. 
 5. 드라이버는 다시 결과를 JDBC API로 전달하며, JPA는 받은 결과를 자바 객체로 변환하여 애플리케이션에 전달한다.
@@ -25,13 +23,14 @@ JPA의 구현체는 **Hibernate, EclipseLink, OpenJPA, DataNucleus** 등이 있�
 
 ![image.png](assets/img/jpa/2.png)
 
-- **JPA는 ORM의 일종**이다. `ORM(Object-Relational Mapping)` 은 객체 지향 프로그래밍과 RDBMS 간 데이터 변환 및 매핑하는 도구이다. ORM을 통해 SQL 쿼리를 작성하지 않고 **객체 지향적 코드를 통해 DB 작업을 수행**할 수 있다.
+- **JPA는 ORM의 일종**이다.
+`ORM(Object-Relational Mapping)` 은 객체 지향 프로그래밍과 RDBMS 간 데이터 변환 및 매핑하는 도구이다. ORM을 통해 SQL 쿼리를 작성하지 않고 **객체 지향적 코드를 통해 DB 작업을 수행**할 수 있다.
 
 ### 장점
 
 - **메서드를 호출**하여 데이터를 조작할 수 있으므로 개발 속도를 향상시킬 수 있다. 더 나아가 애플리케이션의 비즈니스 로직에 집중할 수 있다.
 - **객체 지향적**인 코드 작성으로 생산성이 증가하며, 코드 재활용이 가능하다.
-    - 데이터베이스가 교체되어도 코드를 수정할 필요가 없다. 즉, DBMS에 대해 종속적이지 않다.
+    - 데이터베이스가 교체되어도 코드를 수정할 필요가 없다. 즉, DBMS에 대해 코드가 종속적이지 않다.
 
 ### 단점
 
@@ -46,7 +45,7 @@ JPA와 MyBatis 모두 자바 애플리케이션과 DB 간 상호작용에서 사
 
 ## 📌 영속성 컨텍스트
 
-`Persistence Context`(영속성 컨텍스트)는 엔티티를 영구적으로 저장하는 환경을 말한다. 자바 애플리케이션과 DB 사이에 `Entity`를 저장하는 가상의 DB라고 생각하면 된다. 영속성 컨텍스트에 접근 및 관리를 하는 주체는 `EntityManager`이다.
+`Persistence Context`(영속성 컨텍스트)는 엔티티를 영구적으로 저장하는 환경을 말한다. 자바 애플리케이션과 DB 사이에 `Entity`의 생명주기를 관리하는 가상의 DB라고 생각하면 된다. 이러한 역할을 수행하는 주체가 `EntityManager`이다.
 
 ### Entity
 
@@ -54,22 +53,28 @@ DB의 테이블을 클래스로 구현한 것이다.
 
 ### EntityManager
 
-Entity를 관리하는 주체이다.
+영속성 컨텍스트를 관리하여 엔티티의 생명주기를 관리한다.
 
 EntityManager를 생성하는 방법은 두 가지가 존재한다.
 
-1. Container-Managed
+1\. Container-Managed
 
-스프링 컨테이너의 `EntityManagerFactory` 에서 EntityManager를 생성하여 주입하는 방식이다. Thread-safe하다.
+스프링 컨테이너의 `EntityManagerFactory` 에서 `EntityManager`를 생성하여 주입하는 방식이다. Thread-safe한 방법이다.
+
+> Thread-safe 라는 것은 여러 쓰레드가 동시에 같은 자원이나 객체에 접근해도 수행하는 동작이 보장된다는 의미이다.
+>
+
 
 ```java
 @PersistenceContext
 EntityManager entityManager;
 ```
 
-1. Application-Managed
+`@PersistenceContext` 로 주입받는 `EntityManager` 는 프록시로 감싸져 있다. 따라서 프록시가 호출될 때마다 현재 쓰레드에 바인딩된 실제 `EntityManager` 를 내부적으로 조회하여 위임한다. 따라서 단일 프록시 객체가 여러 쓰레드에 공유되더라도 각 쓰레드는 자신만의 `EntityManager` 객체를 사용하게 된다.
 
-애플리케이션에서 직접 EntityManager를 생성하여 사용하는 방식이다.
+2\. Application-Managed
+
+`EntityManagerFactory`에서 직접 EntityManager를 생성하여 사용하는 방식이다.
 
 ```java
 @Autowired
@@ -82,13 +87,15 @@ public void someMethod() {
 }
 ```
 
+다만, 개발자가 직접 `EntityManager` 를 생성하여 사용하는 경우는 드물다. `JpaRepository` 인터페이스를 상속하면 내부적으로 `EntityManager` 를 생성하여 사용하기 때문이다.
+
 ### Entity Lifecycle
 
 ![image.png](assets/img/jpa/3.png)
 
 엔티티는 영속성 컨텍스트와의 관계에 따라 크게 네 가지 상태를 가진다.
 
-1. 비영속(New/Transient)
+1\. 비영속(New/Transient)
 
 엔티티가 영속성 컨텍스트와 전혀 관계가 없는 상태이다.
 
@@ -97,7 +104,7 @@ Member member = new Member();
 member.setId("member1");
 ```
 
-1. 영속(Managed)
+2\. 영속(Managed)
 
 엔티티가 영속성 컨텍스트에 저장되어 관리되는 상태이다.
 
@@ -105,9 +112,9 @@ member.setId("member1");
 em.persist(member);
 ```
 
-1. 준영속(Detached)
+3\. 준영속(Detached)
 
-엔티티가 영속 상태였다가 영속성 컨텍스트에서 분리된 상태이다.
+엔티티가 한때 영속 상태였다가 영속성 컨텍스트에서 분리된 상태이다.
 
 ```java
 em.detach(member);
@@ -123,7 +130,7 @@ em.close();
 
 `merge()` 를 통해 분리된 엔티티를 다시 영속성 컨텍스트에 병합할 수 있다.
 
-1. 삭제(Removed)
+4\. 삭제(Removed)
 
 영속성 컨텍스트에 저장된 엔티티가 삭제된 상태이다.
 
@@ -133,9 +140,11 @@ em.remove(member);
 
 `remove()` 를 통해 엔티티를 영속성 컨텍스트와 DB 모두 제거한다.
 
+더 더앙한 `EntityManager` 관련 메서드는 [여기](https://whqtker.github.io/posts/persistence_context_method/)를 참고한다.
+
 ### 장점
 
-- 영속성 컨텍스트는 내부에 **1차 캐시**를 가지고 있다. 1차 캐시를 통해 동일한 엔티티 접근 시 DB가 아닌 캐시에서 조회할 수 있다. 단, **1차 캐시는 트랜잭션 단위**이므로 트랜잭션이 끝나면 캐시의 해당 정보는 사라지게 된다.
+- 영속성 컨텍스트는 내부에 **1차 캐시**를 가지고 있다. 같은 트랜잭션 내 동일한 엔티티 접근 시 DB가 아닌 캐시에서 조회할 수 있다. 단, **1차 캐시는 트랜잭션 단위**이므로 트랜잭션이 끝나면 캐시의 해당 정보는 사라지게 된다.
     - 애플리케이션 전체가 공유하는 캐시는 2차 캐시라고 부른다.
 - 같은 트랜잭션 안에서 같은 엔티티를 조회하면 동일한 객체 참조를 리턴한다. 이를 통해 **동일성**을 보장한다.
 
@@ -165,6 +174,10 @@ JPA는 메서드 이름에서 자동으로 쿼리를 생성하는 기능을 제�
 List<Book> findByTitle(String title);
 List<Book> findByTitleOrAuthor(String title, String author);
 ```
+
+더 자세한 메서드는 [여기](https://whqtker.github.io/posts/jpa.method/)를 참고한다.
+
+---
 
 `@Query` 어노테이션을 통해 JPQL 쿼리를 직접 작성할 수 있다.
 
@@ -220,6 +233,6 @@ public Page<Product> findProductsByName(String name, Pageable pageable) {
 
 [https://velog.io/@modsiw/JPAJava-Persistence-API의-개념](https://velog.io/@modsiw/JPAJava-Persistence-API%EC%9D%98-%EA%B0%9C%EB%85%90)
 
-https://ittrue.tistory.com/254
+[https://ittrue.tistory.com/254](https://ittrue.tistory.com/254)
 
 [https://velog.io/@neptunes032/JPA-영속성-컨텍스트란](https://velog.io/@neptunes032/JPA-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%9E%80)

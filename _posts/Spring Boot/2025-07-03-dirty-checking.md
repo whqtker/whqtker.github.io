@@ -1,6 +1,6 @@
 ---
 title : "[JPA] Dirty Checking"
-date : 2025-07-09 10:10:00 +0900
+date : 2025-07-03 10:10:00 +0900
 categories : [Spring Boot]
 tags : [java, spring boot, jpa, dirty checking, 변경 감지, 스프링 부트]
 ---

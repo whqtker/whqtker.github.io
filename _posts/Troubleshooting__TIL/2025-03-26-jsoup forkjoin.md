@@ -1,7 +1,7 @@
 ---
 title : "[Java] Jsoup 속도 개선 - ForkJoinPool / ForkJoin Framework"
 date : 2025-03-26 11:00:00 +0900
-categories : [Troubleshooting]
+categories : [Troubleshooting/TIL]
 tags : [java, troubleshooting, spring boot, crawling, forkjoinpool, forkjoin framework, jsoup]
 ---
 

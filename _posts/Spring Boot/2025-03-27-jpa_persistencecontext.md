@@ -158,6 +158,8 @@ System.out.println(a == b); // true (동일성 보장)
 - 엔티티의 변경 사항을 자동으로 감지하여 UPDATE 쿼리문을 생성한다. 이를 `Dirty Checking`이라고 한다.
 - `Lazy Loading`(지연 로딩) 기능을 통해 필요한 시점에 관련 데이터를 불러올 수 있다.
 
+`Dirty Checking` 에 대한 자세한 내용은 [여기](https://whqtker.github.io/posts/dirty-checking/)를 참고한다.
+
 ## 📌 JPA 메서드
 
 JPA는 메서드 이름에서 자동으로 쿼리를 생성하는 기능을 제공한다.

@@ -39,7 +39,7 @@ Spark Streaming은 데이터 스트림을 짧은 시간 간격으로 자르고, 
 
 Structured Streaming은 데이터가 시스템에 도착한 시간이 아닌 이벤트가 실제로 발생한 시간을 기준으로 연산을 수행할 수도 있다.
 
-![image.png](attachment:a6ea8716-6561-4eb4-a786-3e9306c1f133:image.png)
+![image.png](assets/img/spark/7.png)
 
 ‘윈도우 연산’은  특정 시간 단위로 데이터를 그룹화하여 집계하는 기능으로, 주로 `sliding window` 기법을 사용한다. 시계열 데이터를 분석할 때 특히 유용하다.
 

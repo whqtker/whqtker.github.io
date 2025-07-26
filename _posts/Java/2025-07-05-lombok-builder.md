@@ -1,5 +1,5 @@
 ---
-title : "@Builder"
+title : "Builder 어노테이션"
 date : 2025-07-05 14:50:00 +0900
 categories : [Java]
 tags : [java, spring boot, lombok, builder]

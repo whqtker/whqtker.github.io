@@ -1,12 +1,19 @@
-## 개요
+---
+title : "[Spring Security] UsernamePasswordAuthenticationFilter"
+date : 2025-09-05 09:10:00 +0900
+categories : [Spring Boot]
+tags : [java, 자바, spring boot, 스프링 부트, spring security, UsernamePasswordAuthenticationFilter]
+---
+
+## 📌 개요
 
 사용자가 자격 증명을 입력하면 어떤 과정을 거쳐 사용자를 인증하게 될까? 그 과정에 대해 알아보자.
 
-## UsernamePasswordAuthenticationFilter이란?
+## 📌 UsernamePasswordAuthenticationFilter이란?
 
 `UsernamePasswordAuthenticationFilter` 는 보안 필터 중 하나로 `POST` 요청으로 들어온 자격 증명을 토대로 인증을 수행한다.
 
-## 자격 증명 요청 전송 ~ 인증
+## 📌 자격 증명 요청 전송 ~ 인증
 
 ```java
 private void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -129,7 +136,7 @@ private void doFilter(HttpServletRequest request, HttpServletResponse response, 
 
 실패하였다면 `unsuccessfulAuthentication` 를 호출하여 `SecurityContextHolder` 를 초기화하고 `failureHandler` 를 호출한다.
 
-## 인증 후
+## 📌 인증 후
 
 ![image.png](assets/img/spring-security/4.png)
 

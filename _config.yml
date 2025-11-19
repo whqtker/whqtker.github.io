@@ -230,5 +230,5 @@ jekyll-archives:
 markdown: kramdown
 highlighter: rouge
 lsi: false
-excerpt_separator: "\n\n"
+excerpt_separator: ""
 incremental: false

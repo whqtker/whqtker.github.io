@@ -2,12 +2,12 @@
 share: true
 categories:
   - PS
-title: Union Find
+title: 분리 집합, Union Find
 date: 2026-02-28 16:41:16 +0900
 slug: 2026-02-28-union-find
 tags:
   - UnionFind
-description: Union Find
+description: 분리 집합, Union Find
 ---
 
 `Union Find (Disjoint Set Union, DSU)`는 **서로소 집합들을 관리하는 자료구조**로, 두 원소가 같은 집합에 속하는지 판별하고 두 집합을 합치는 연산을 효율적으로 수행한다.

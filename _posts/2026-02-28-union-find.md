@@ -1,7 +1,7 @@
 ---
 share: true
 categories:
-  - PS
+  - Algorithms
 title: 분리 집합, Union Find
 date: 2026-02-28 16:41:16 +0900
 slug: 2026-02-28-union-find
